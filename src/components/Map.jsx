@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
 import MapboxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import { FaArrowsAltV } from "react-icons/fa";
+import { GiWideArrowDunk } from "react-icons/gi";
 import { MdLocationOn } from "react-icons/md";
 import { AiFillHome } from "react-icons/ai";
 
@@ -224,11 +225,11 @@ const Direction = () => {
     }, 200);
   };
 
-  console.log("routeGeometry==>", routeGeometry);
+  // console.log("routeGeometry==>", routeGeometry);
 
   return (
-    <div className="container direction">
-      <div className="col-lg-12 col-sm-12 text-center MT30">
+    <div className="container-fluid direction">
+      <div className="col-lg-12 col-sm-12 text-center">
         <h1 className="primary-title text-center" id="info">
           Map and Directions to Kolkata, West Bengal, India
         </h1>
@@ -237,7 +238,7 @@ const Direction = () => {
       <div className="F18 MB15">
         <div className="col-lg-12 map_to_box col-xs-12 col-sm-12 text-xs-center text-center">
           <div id="from" className="mx-auto">
-            <strong>From</strong>
+            <strong style={{ color: "white" }}>From</strong>
             <label htmlFor="fromAddress" style={{ display: "none" }}>
               From label
             </label>
@@ -246,7 +247,7 @@ const Direction = () => {
               className={isFocused ? "input-focused" : ""}
               name="fromAddress"
               id="fromAddress"
-              placeholder="Example: 10 Market Street, San Francisco, CA 94105"
+              placeholder="Example: Bidhannagar West Bengal, India"
               value={origin}
               onChange={(e) => {
                 handleInputChange(e);
@@ -327,14 +328,14 @@ const Direction = () => {
             <input
               onClick={() => calcRouteDirection()}
               type="button"
-              className="btns btn-green"
+              className="btns btn-grey"
               value="Get Directions"
             />
           </div>
         </div>
 
         {routeInfo.length > 0 && (
-          <div className="col-12 row mt-5 mx-auto">
+          <div className="col-12 row mt-5 mx-auto shadow bg-light">
             <div
               className="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center mobile-shadow"
               id="direction_div_show"
@@ -348,7 +349,7 @@ const Direction = () => {
                 </span>
                 <span className="hide">from location</span>
               </h2>
-              <FaArrowsAltV className="F82 between-arrow" />
+              <GiWideArrowDunk className="F82" />
               <h2 className="M10 F25">
                 <AiFillHome className="MR10 F30" />
                 <span id="to_address_show">Kolkata, West Bengal, India</span>
